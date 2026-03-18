@@ -75,7 +75,7 @@ This Disclaimer shall be governed by and construed in accordance with the laws o
 
 If you have questions about this Disclaimer, please contact us at:
 
-📧 **D.M.Brame@gmail.com**
+📧 **BrameStorm@yahoo.ca**
 
 ---
 
