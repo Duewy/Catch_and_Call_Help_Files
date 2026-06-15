@@ -1,41 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- ============================================================
+     CATCH & CALL ProVC — MARKETING / SALES PAGE
+     ------------------------------------------------------------
+     HOW THIS FILE IS ORGANIZED:
+       1. <style> ........ ALL the LOOKS (colors, sizes, spacing)   <- lines in the head
+       2. <body> ......... ALL the CONTENT (text, images, buttons)  <- lines further down
+
+     QUICK TIPS:
+       * To change a COLOR everywhere at once -> edit the :root palette below.
+       * To change how something LOOKS (size/color/spacing) -> find it in <style>.
+       * To change WORDS or IMAGES -> find it in <body> (each block is labeled).
+       * Numbers like 220px, 4.2rem, 64px are sizes — make the number bigger/smaller.
+       * You can't permanently break anything — every save is kept in GitHub history.
+     ============================================================ -->
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Catch &amp; Call ProVC — Hands-Free Fish Logging for Every Angler</title>
 <meta name="description" content="Catch & Call ProVC: hands-free voice fish logging, GPS catch mapping, and tournament culling tools for fun anglers, tournament anglers, and kayak anglers. Download on Google Play and the App Store.">
 <style>
+  /* ===== 1. BRAND COLOR PALETTE =====================================
+     This is your MASTER color panel. Change a value here and it updates
+     EVERYWHERE that color is used (headings, buttons, CTA, etc.).
+     Paste your exact logo hex codes here when you have them.            */
   :root{
-    /* Brand palette (approximate — swap in exact hex later) */
     --brand-green:#1f7a4d; --brand-green-dark:#155c39; --brand-blue:#1e6091; --brand-blue-dark:#15486e;
     --sky:#52b3d9; --sun:#f6b93b; --ink:#0b1d26; --mist:#f4f9fb; --white:#ffffff;
   }
+
+  /* ===== 2. GLOBAL / PAGE-WIDE BASICS ============================== */
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.6;background:var(--mist)}
-  .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 20px}   /* controls overall page width */
   a{color:inherit;text-decoration:none}
   img{max-width:100%;display:block}
 
-  /* Hero with bass background */
+  /* ===== 3. HERO (top banner with the bass photo) ================== */
   .hero{position:relative;color:#fff;text-align:center;padding:90px 20px 100px;overflow:hidden}
+  /* --- Bass background photo + grayscale amount --- */
   .hero::before{
     content:"";position:absolute;inset:0;z-index:0;
     background:url("images/bass_jumping_boater.png") center/cover no-repeat;
-    filter:grayscale(30%);
+    filter:grayscale(30%);   /* <-- change 30% for more/less color in the fish photo */
   }
+  /* --- Green/blue color wash over the photo --- */
   .hero::after{
     content:"";position:absolute;inset:0;z-index:1;
     background:linear-gradient(160deg,rgba(21,92,57,.86),rgba(31,122,77,.78) 45%,rgba(30,96,145,.88));
   }
   .hero .wrap{position:relative;z-index:2}
-  /* Center Catch & Call Logo Image */
+  /* --- CENTER "Catch & Call" LOGO IMAGE (change 220px to resize) --- */
   .hero .logo{width:220px;height:220px;border-radius:26px;margin:0 auto 22px;box-shadow:0 12px 34px rgba(0,0,0,.45)}
+  /* --- "NOW LIVE..." little pill badge --- */
   .hero .tag{display:inline-block;background:rgba(255,255,255,.18);padding:6px 16px;border-radius:999px;font-size:.9rem;margin-bottom:20px;letter-spacing:.5px}
+  /* --- "Stop Fumbling With Notes." small line --- */
   .hero h1{font-size:2.2rem;line-height:1.15;margin-bottom:6px;font-weight:600;text-shadow:0 2px 10px rgba(0,0,0,.45)}
+  /* --- BIG "Catch & Call It." headline (change 4.2rem to resize) --- */
   .hero h1 .brand{display:block;font-size:4.2rem;font-weight:900;letter-spacing:-1px;margin-top:8px;
     color:#eafff3;text-shadow:0 3px 18px rgba(0,0,0,.6);line-height:1.05}
+  /* --- Sub-paragraph under the headline --- */
   .hero p.sub{font-size:1.2rem;max-width:680px;margin:22px auto 14px;opacity:.97;text-shadow:0 1px 6px rgba(0,0,0,.45)}
+  /* --- Google Play / App Store black buttons (used in hero AND CTA) --- */
   .badges{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:28px}
   .store-btn{background:#000;color:#fff;border-radius:12px;padding:12px 22px;display:flex;align-items:center;gap:10px;font-weight:600;border:1px solid rgba(255,255,255,.3);transition:transform .15s}
   .store-btn:hover{transform:translateY(-2px)}
@@ -43,88 +69,100 @@
   .store-btn span.lbl{font-size:1.05rem}
   .store-btn .ic{font-size:1.4rem;line-height:1}
 
-  section{padding:64px 0}
-  h2{font-size:2rem;text-align:center;color:var(--brand-green-dark);margin-bottom:10px}
-  .lead{text-align:center;max-width:640px;margin:0 auto 44px;color:#456}
+  /* ===== 4. SHARED SECTION STYLES (headings used by all sections) == */
+  section{padding:64px 0}                                    /* top/bottom space around each section */
+  h2{font-size:2rem;text-align:center;color:var(--brand-green-dark);margin-bottom:10px}  /* all section titles */
+  .lead{text-align:center;max-width:640px;margin:0 auto 44px;color:#456}                 /* sub-title under each title */
 
-  /* Editions / app icons */
-  .editions{background:#fff}
+  /* ===== 5. "PICK YOUR EDITION" (Free / Tracker / ProVC icon boxes)
+     The whole strip's background = .editions
+     Each individual box        = .edition  (change 'background' to color them)  */
+  .editions{background:#fff}   /* <-- background BEHIND the 3 boxes */
   .edition-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;max-width:820px;margin:0 auto}
-  .edition{text-align:center;background:var(--mist);border-radius:18px;padding:26px 20px;box-shadow:0 8px 22px rgba(10,61,98,.07);border-top:4px solid var(--brand-green)}
-  .edition.mid{border-top-color:var(--brand-blue)}
-  .edition.top{border-top-color:var(--sun)}
-  .edition img{width:96px;height:96px;border-radius:22px;margin:0 auto 14px;box-shadow:0 6px 16px rgba(0,0,0,.18)}
+  .edition{text-align:center;background:var(--mist);border-radius:18px;padding:26px 20px;box-shadow:0 8px 22px rgba(10,61,98,.07);border-top:4px solid var(--brand-green)}  /* <-- BOX color = 'background' */
+  .edition.mid{border-top-color:var(--brand-blue)}   /* the middle (Tracker) box top stripe */
+  .edition.top{border-top-color:var(--sun)}          /* the right  (ProVC)  box top stripe */
+  .edition img{width:96px;height:96px;border-radius:22px;margin:0 auto 14px;box-shadow:0 6px 16px rgba(0,0,0,.18)}  /* app icon size */
   .edition h3{color:var(--brand-blue);font-size:1.2rem;margin-bottom:4px}
   .edition p{color:#567;font-size:.92rem}
 
-  /* Personas */
+  /* ===== 6. PERSONA CARDS (Fun / Tournament / Kayak) =============== */
   .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
   .card{background:#fff;border-radius:18px;padding:0 0 28px;box-shadow:0 10px 30px rgba(10,61,98,.08);border-top:5px solid var(--brand-green);transition:transform .2s;overflow:hidden}
   .card:hover{transform:translateY(-6px)}
-  .card .shot{width:100%;height:300px;object-fit:cover;object-position:top;background:#eef4f8}
+  .card .shot{width:100%;height:300px;object-fit:cover;object-position:top;background:#eef4f8}  /* screenshot height */
   .card .body{padding:24px 28px 0}
   .card .emoji{font-size:2.4rem;margin-bottom:10px}
   .card h3{color:var(--brand-blue);font-size:1.35rem;margin-bottom:12px}
   .card ul{list-style:none}
   .card li{padding-left:26px;position:relative;margin-bottom:9px}
-  .card li::before{content:"\2713";position:absolute;left:0;color:var(--sun);font-weight:700}
-  .card.fun{border-top-color:var(--brand-blue)}
-  .card.tourn{border-top-color:var(--sun)}
-  .card.kayak{border-top-color:var(--brand-green)}
+  .card li::before{content:"\2713";position:absolute;left:0;color:var(--sun);font-weight:700}  /* the gold check marks */
+  .card.fun{border-top-color:var(--brand-blue)}    /* Fun card top stripe color */
+  .card.tourn{border-top-color:var(--sun)}         /* Tournament card top stripe color */
+  .card.kayak{border-top-color:var(--brand-green)} /* Kayak card top stripe color */
 
-  .features{background:#fff}
+  /* ===== 7. "WHY ANGLERS LOVE IT" feature grid ==================== */
+  .features{background:#fff}   /* <-- background behind the features */
   .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
   .feat{text-align:center;padding:14px}
   .feat .ic{font-size:2rem;margin-bottom:8px}
   .feat h4{color:var(--brand-green-dark);margin-bottom:6px}
   .feat p{color:#567;font-size:.97rem}
 
-  /* Screenshot gallery */
-  .gallery{background:var(--mist)}
+  /* ===== 8. SCREENSHOT GALLERY ("Take a Look Inside") ============= */
+  .gallery{background:var(--mist)}   /* <-- background behind the gallery */
   .shot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
   .shot-card{background:#fff;border-radius:16px;padding:14px;box-shadow:0 8px 22px rgba(10,61,98,.08);text-align:center}
   .shot-card img{width:100%;border-radius:10px;border:1px solid #e3edf3}
-  .shot-card p{margin-top:10px;font-size:.92rem;color:#456;font-weight:600}
+  .shot-card p{margin-top:10px;font-size:.92rem;color:#456;font-weight:600}  /* caption under each screenshot */
 
-  /* Tiers */
-  .tiers{background:linear-gradient(160deg,#e9f6ef,#dcecf5)}
+  /* ===== 9. PRICING PLANS (Tracker / ProVC) ====================== */
+  .tiers{background:linear-gradient(160deg,#e9f6ef,#dcecf5)}   /* <-- background behind the pricing */
   .tier-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:820px;margin:0 auto}
-  .tier{background:#fff;border-radius:18px;padding:30px;box-shadow:0 10px 30px rgba(10,61,98,.10)}
+  .tier{background:#fff;border-radius:18px;padding:30px;box-shadow:0 10px 30px rgba(10,61,98,.10)}  /* each price box */
   .tier h3{color:var(--brand-blue);font-size:1.5rem;margin-bottom:6px}
   .tier .price{font-size:1.6rem;color:var(--brand-green-dark);font-weight:800;margin:10px 0 4px}
   .tier .price small{font-size:.95rem;color:#789;font-weight:500}
   .tier ul{list-style:none;margin-top:14px}
   .tier li{padding-left:26px;position:relative;margin-bottom:8px;color:#345}
   .tier li::before{content:"\2713";position:absolute;left:0;color:var(--brand-green);font-weight:700}
-  .tier.provc{border:2px solid var(--sun)}
-  .tier .ribbon{display:inline-block;background:var(--sun);color:#3a2e00;font-weight:700;font-size:.78rem;padding:4px 14px;border-radius:999px;margin-bottom:8px}
+  .tier.provc{border:2px solid var(--sun)}   /* gold outline on the ProVC box */
+  .tier .ribbon{display:inline-block;background:var(--sun);color:#3a2e00;font-weight:700;font-size:.78rem;padding:4px 14px;border-radius:999px;margin-bottom:8px}  /* "MOST POPULAR" tag */
 
-  /* CTA */
+  /* ===== 10. CTA BAND ("Your Next Catch Is Calling") ============= */
   .cta{background:linear-gradient(160deg,var(--brand-green),var(--brand-blue));color:#fff;text-align:center}
   .cta h2{color:#fff}
   .cta p{max-width:600px;margin:0 auto 26px;opacity:.95;font-size:1.1rem}
 
+  /* ===== 11. FOOTER (legal + privacy links) ===================== */
   footer{background:var(--ink);color:#cfe1ea;text-align:center;padding:34px 20px;font-size:.9rem}
   footer a{color:var(--sky)}
   footer .legal{margin-top:10px;font-size:.82rem;opacity:.8;max-width:720px;margin-left:auto;margin-right:auto}
 
+  /* ===== 12. MOBILE / PHONE VIEW (kicks in on narrow screens) ==== */
   @media(max-width:780px){
-    .hero h1 .brand{font-size:2.9rem}
-    .cards,.feat-grid,.tier-grid,.edition-grid{grid-template-columns:1fr}
-    .shot-grid{grid-template-columns:repeat(2,1fr)}
+    .hero h1 .brand{font-size:2.9rem}                                  /* smaller headline on phones */
+    .cards,.feat-grid,.tier-grid,.edition-grid{grid-template-columns:1fr}  /* stack boxes vertically */
+    .shot-grid{grid-template-columns:repeat(2,1fr)}                    /* gallery: 2 across on phones */
     h2{font-size:1.6rem}
   }
 </style>
 </head>
 <body>
 
-  <!-- HERO -->
+  <!-- ============================================================
+       SECTION 1: HERO  (logo, headline, store buttons)
+       - Logo image .......... line below with class="logo"
+       - Big headline ........ <span class="brand">
+       - Store buttons ....... class="store-btn"
+       ============================================================ -->
   <header class="hero">
     <div class="wrap">
+      <!-- CENTER Catch & Call LOGO (size is set in <style> .hero .logo) -->
       <img class="logo" src="images/catch_and_call_tracker_provc_green_backing.png" alt="Catch and Call ProVC logo">
       <span class="tag">🎣 NOW LIVE ON GOOGLE PLAY &amp; THE APP STORE</span>
       <h1>Stop Fumbling With Notes.
-        <span class="brand">Catch &amp; Call It.</span>
+        <span class="brand">Catch &amp; Call It.</span>   <!-- BIG brand headline -->
       </h1>
       <p class="sub">Catch &amp; Call ProVC is hands-free, voice-controlled fish logging built for the way you actually fish — speak your catch, keep your line wet, and let the app handle the rest.</p>
       <div class="badges">
@@ -138,22 +176,29 @@
     </div>
   </header>
 
-  <!-- EDITIONS / APP ICONS -->
+  <!-- ============================================================
+       SECTION 2: PICK YOUR EDITION  (Free / Tracker / ProVC icons)
+       - Box colors are set in <style> under ".edition"
+       - Each box = <div class="edition"> (Free), ".mid" (Tracker), ".top" (ProVC)
+       ============================================================ -->
   <section class="editions">
     <div class="wrap">
       <h2>Pick Your Edition</h2>
       <p class="lead">Start free, then upgrade to unlock GPS mapping and hands-free voice control.</p>
       <div class="edition-grid">
+        <!-- FREE edition box -->
         <div class="edition">
           <img src="images/catch_and_call_free_appicon.png" alt="Catch and Call Free app icon">
           <h3>Free</h3>
           <p>Log your catches and get started — no cost.</p>
         </div>
+        <!-- TRACKER edition box -->
         <div class="edition mid">
           <img src="images/catch_and_call_tracker_appicon.png" alt="Catch and Call Tracker app icon">
           <h3>Tracker</h3>
           <p>GPS catch mapping, pins &amp; KML export.</p>
         </div>
+        <!-- ProVC edition box -->
         <div class="edition top">
           <img src="images/catch_and_call_tracker_pro_vc_appicon.png" alt="Catch and Call ProVC app icon">
           <h3>ProVC</h3>
@@ -163,13 +208,17 @@
     </div>
   </section>
 
-  <!-- PERSONAS -->
+  <!-- ============================================================
+       SECTION 3: PERSONA CARDS  (Fun / Tournament / Kayak Anglers)
+       - Each card = <div class="card ..."> with a screenshot + bullet list
+       ============================================================ -->
   <section>
     <div class="wrap">
       <h2>Built for Every Kind of Angler</h2>
       <p class="lead">Whether you're out for the weekend, chasing a check, or paddling solo — Catch &amp; Call has a mode for you.</p>
       <div class="cards">
 
+        <!-- FUN ANGLERS card -->
         <div class="card fun">
           <img class="shot" src="images/Base_FunDay.png" alt="Catch and Call Fun Day catch logging screen">
           <div class="body">
@@ -185,6 +234,7 @@
           </div>
         </div>
 
+        <!-- TOURNAMENT ANGLERS card -->
         <div class="card tourn">
           <img class="shot" src="images/ProVC_Tournament.png" alt="Catch and Call tournament culling screen">
           <div class="body">
@@ -200,6 +250,7 @@
           </div>
         </div>
 
+        <!-- KAYAK ANGLERS card -->
         <div class="card kayak">
           <img class="shot" src="images/ProMap.png" alt="Catch and Call GPS map with catch pins">
           <div class="body">
@@ -219,7 +270,9 @@
     </div>
   </section>
 
-  <!-- FEATURES -->
+  <!-- ============================================================
+       SECTION 4: WHY ANGLERS LOVE IT  (feature icons + text)
+       ============================================================ -->
   <section class="features">
     <div class="wrap">
       <h2>Why Anglers Love It</h2>
@@ -235,7 +288,10 @@
     </div>
   </section>
 
-  <!-- SCREENSHOT GALLERY -->
+  <!-- ============================================================
+       SECTION 5: SCREENSHOT GALLERY  ("Take a Look Inside")
+       - Each shot = <div class="shot-card"> with an image + caption <p>
+       ============================================================ -->
   <section class="gallery">
     <div class="wrap">
       <h2>Take a Look Inside</h2>
@@ -251,13 +307,17 @@
     </div>
   </section>
 
-  <!-- TIERS -->
+  <!-- ============================================================
+       SECTION 6: PRICING PLANS  (Tracker / ProVC)
+       - Prices are the <div class="price"> lines (edit the numbers here)
+       ============================================================ -->
   <section class="tiers" id="pricing">
     <div class="wrap">
       <h2>Choose Your Plan</h2>
       <p class="lead">Two subscriptions, monthly or yearly. Cancel anytime.</p>
       <div class="tier-grid">
 
+        <!-- TRACKER price box -->
         <div class="tier">
           <h3>🗺️ Tracker</h3>
           <div class="price">$1.99 USD <small>/ month</small></div>
@@ -270,6 +330,7 @@
           </ul>
         </div>
 
+        <!-- ProVC price box -->
         <div class="tier provc">
           <span class="ribbon">MOST POPULAR</span>
           <h3>🎙️ ProVC</h3>
@@ -288,7 +349,9 @@
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- ============================================================
+       SECTION 7: CTA BAND  ("Your Next Catch Is Calling")
+       ============================================================ -->
   <section class="cta">
     <div class="wrap">
       <h2>Your Next Catch Is Calling.</h2>
@@ -304,6 +367,9 @@
     </div>
   </section>
 
+  <!-- ============================================================
+       SECTION 8: FOOTER  (copyright, privacy links, legal text)
+       ============================================================ -->
   <footer>
     <p>&copy; 2026 Catch &amp; Call ProVC &middot; BrameStorm. All rights reserved.</p>
     <p style="margin-top:8px">
